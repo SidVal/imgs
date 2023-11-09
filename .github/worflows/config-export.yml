@@ -1,0 +1,17 @@
+name: Configurar repositorio remoto
+
+on:
+  workflow_dispatch: # Este evento es manual y no se activará automáticamente
+
+jobs:
+  configurar-repositorio:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar repositorio remoto
+        run: |
+          git remote add origin https://github.com/SidVal/imgs.git
+          git push --set-upstream origin main
